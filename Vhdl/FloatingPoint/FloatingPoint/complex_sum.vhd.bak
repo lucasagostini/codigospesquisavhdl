@@ -1,0 +1,19 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+library ieee_proposed;
+use ieee_proposed.fixed_float_types.all; 
+use ieee_proposed.float_pkg.all;
+
+entity complex_sum is
+port (
+	a: in  complex32;
+	b: in  complex32;
+	s: out complex32);
+end entity;
+
+architecture rtl of complex_sum is
+begin
+	s.re <= a.re + b.re;
+	s.im <= a.im + b.im;
+end rtl;

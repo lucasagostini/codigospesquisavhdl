@@ -1,0 +1,13 @@
+library IEEE;
+use ieee.std_logic_1164.all;
+
+entity mult_serial_32bits is
+port (
+	mr		: 	in std_logic_vector(31 downto 0);
+	md 	: 	in std_logic_vector(31 downto 0);
+	clk	:	in std_logic;
+	reset	:	in std_logic;
+	pp		: out std_logic_vector(63 downto 0);
+);
+end entity;
+

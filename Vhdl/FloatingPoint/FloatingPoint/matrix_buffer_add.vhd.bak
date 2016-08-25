@@ -1,0 +1,6 @@
+use work.complex_pkg.all;
+
+entity matrix_mult_buffer is
+generic (n: integer := 8);
+port ()
+end entity;

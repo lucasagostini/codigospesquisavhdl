@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="MZ_Int">
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|HADAMARDgate:QC1|mult:multalphaimag|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|HADAMARDgate:QC1|mult:multbetareal|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|HADAMARDgate:QC3|mult:multalphareal|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|HADAMARDgate:QC3|mult:multbetaimag|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|HADAMARDgate:QC1|mult:multalphareal|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|HADAMARDgate:QC1|mult:multbetaimag|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|HADAMARDgate:QC3|mult:multalphaimag|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|HADAMARDgate:QC3|mult:multbetareal|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|PHASEgate:QC2|mult:mult_imagrealphase|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|MZ_Int|PHASEgate:QC2|mult:mult_realimagphase|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

@@ -1,0 +1,16 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vcom -93 -work work {C:/vhdl/trabalho_mult/exe1/exercicio1.vhd}
+vcom -93 -work work {C:/vhdl/trabalho_mult/exe1/simulation/modelsim/exercicio1.vht}
+
+vsim +altera -do exercicio1_run_msim_rtl_vhdl.do -l msim_transcript -gui work.exercicio1_vhd_tst
+
+do wave_form.do
+
+run 100ns
+

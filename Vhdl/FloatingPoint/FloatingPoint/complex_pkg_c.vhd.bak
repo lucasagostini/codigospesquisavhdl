@@ -1,0 +1,19 @@
+-- Package defining complex type
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+library ieee_proposed;
+use ieee_proposed.fixed_float_types.all; 
+use ieee_proposed.float_pkg.all; 
+
+package complex_pkg is 
+
+	type complex_f32 is record 
+		re: float32;
+		im: float32;
+	end complex_f32;
+	
+	type complex_fixed32
+
+end package complex_pkg;

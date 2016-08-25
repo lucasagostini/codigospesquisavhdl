@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+library ieee_proposed;
+use ieee_proposed.fixed_float_types.all; 
+use ieee_proposed.float_pkg.all; 
+
+use work.matrix_pkg.all;
+
+entity matrix_example is
+generic (
+	c: integer := 3;
+	l: integer := 4
+);
+port (
+	a: in  matrix(l downto 0, c downto 0);
+	b: in  matrix(l downto 0, c downto 0);
+	o: out matrix(l downto 0, c downto 0)
+);
+end entity;
+
+architecture rtl of matrix_example is
+begin
+	o <= a + b;
+end rtl;

@@ -1,0 +1,472 @@
+Analysis & Synthesis report for hadamard2x2Pipe2
+Mon May 11 23:30:53 2015
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon May 11 23:30:53 2015           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; hadamard2x2Pipe2                                ;
+; Top-level Entity Name              ; hadamard2x2Pipe2                                ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 112                                             ;
+;     Total combinational functions  ; 80                                              ;
+;     Dedicated logic registers      ; 32                                              ;
+; Total registers                    ; 32                                              ;
+; Total pins                         ; 41                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; hadamard2x2Pipe2   ; hadamard2x2Pipe2   ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                    ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                             ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
+; hadamard2x2Pipe2.vhd             ; yes             ; User VHDL File  ; C:/Vhdl/Hadamard/Pipeline/Pipeline2/hadamard2x2Pipe2.vhd ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimated Total logic elements              ; 112   ;
+;                                             ;       ;
+; Total combinational functions               ; 80    ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 70    ;
+;     -- <=2 input functions                  ; 10    ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 10    ;
+;     -- arithmetic mode                      ; 70    ;
+;                                             ;       ;
+; Total registers                             ; 32    ;
+;     -- Dedicated logic registers            ; 32    ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 41    ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+; Maximum fan-out node                        ; Clk   ;
+; Maximum fan-out                             ; 32    ;
+; Total fan-out                               ; 325   ;
+; Average fan-out                             ; 2.12  ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |hadamard2x2Pipe2          ; 80 (80)           ; 32 (32)      ; 0           ; 0            ; 0       ; 0         ; 41   ; 0            ; |hadamard2x2Pipe2   ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; sig                                    ; Stuck at VCC due to stuck port data_in ;
+; cont[0..31]                            ; Lost fanout                            ;
+; Total Number of Removed Registers = 33 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                         ;
++---------------+---------------------------+-----------------------------------------------------------------------------------------+
+; Register name ; Reason for Removal        ; Registers Removed due to This Register                                                  ;
++---------------+---------------------------+-----------------------------------------------------------------------------------------+
+; sig           ; Stuck at VCC              ; cont[2], cont[24], cont[25], cont[26], cont[27], cont[28], cont[29], cont[30], cont[31] ;
+;               ; due to stuck port data_in ;                                                                                         ;
++---------------+---------------------------+-----------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 32    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon May 11 23:30:51 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off hadamard2x2Pipe2 -c hadamard2x2Pipe2
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file hadamard2x2pipe2.vhd
+    Info (12022): Found design unit 1: hadamard2x2Pipe2-combinacional
+    Info (12023): Found entity 1: hadamard2x2Pipe2
+Info (12127): Elaborating entity "hadamard2x2Pipe2" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at hadamard2x2Pipe2.vhd(17): object "ready" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(38): signal "sig" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(39): signal "Sa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(39): signal "Sb" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(40): signal "Sa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(40): signal "Sc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(41): signal "Sd" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(41): signal "Sa" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(42): signal "Sc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(42): signal "Sd" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(43): signal "Sb" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(43): signal "Sd" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(44): signal "Sb" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(44): signal "Sc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(45): signal "s1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(45): signal "s4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(46): signal "s2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(46): signal "s5" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(47): signal "s1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(47): signal "s4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(48): signal "s3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(48): signal "s6" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(53): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(54): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(55): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(56): signal "temp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(22): inferring latch(es) for signal or variable "s1", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(22): inferring latch(es) for signal or variable "s2", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(22): inferring latch(es) for signal or variable "s3", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(22): inferring latch(es) for signal or variable "s4", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(22): inferring latch(es) for signal or variable "s5", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(22): inferring latch(es) for signal or variable "s6", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at hadamard2x2Pipe2.vhd(22): inferring latch(es) for signal or variable "temp", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "temp[1]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[2]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[3]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[4]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[5]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[6]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[7]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[8]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[9]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[10]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[11]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[12]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[13]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[14]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[15]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[16]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[17]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[18]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[19]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[20]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[21]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[22]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[23]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[24]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[25]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[26]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[27]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[28]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[29]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[30]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "temp[31]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s6[0]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s6[1]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s6[2]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s6[3]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s6[4]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s6[5]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s6[6]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s6[7]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s5[0]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s5[1]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s5[2]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s5[3]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s5[4]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s5[5]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s5[6]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s5[7]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s4[0]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s4[1]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s4[2]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s4[3]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s4[4]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s4[5]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s4[6]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s4[7]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s3[0]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s3[1]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s3[2]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s3[3]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s3[4]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s3[5]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s3[6]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s3[7]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s2[0]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s2[1]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s2[2]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s2[3]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s2[4]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s2[5]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s2[6]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s2[7]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s1[0]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s1[1]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s1[2]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s1[3]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s1[4]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s1[5]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s1[6]" at hadamard2x2Pipe2.vhd(22)
+Info (10041): Inferred latch for "s1[7]" at hadamard2x2Pipe2.vhd(22)
+Warning (14026): LATCH primitive "temp[4]" is permanently enabled
+Warning (14026): LATCH primitive "temp[3]" is permanently enabled
+Warning (14026): LATCH primitive "temp[2]" is permanently enabled
+Warning (14026): LATCH primitive "temp[1]" is permanently enabled
+Warning (14026): LATCH primitive "temp[5]" is permanently enabled
+Warning (14026): LATCH primitive "temp[6]" is permanently enabled
+Warning (14026): LATCH primitive "temp[7]" is permanently enabled
+Warning (14026): LATCH primitive "temp[8]" is permanently enabled
+Warning (14026): LATCH primitive "temp[9]" is permanently enabled
+Warning (14026): LATCH primitive "temp[10]" is permanently enabled
+Warning (14026): LATCH primitive "temp[11]" is permanently enabled
+Warning (14026): LATCH primitive "temp[12]" is permanently enabled
+Warning (14026): LATCH primitive "temp[13]" is permanently enabled
+Warning (14026): LATCH primitive "temp[14]" is permanently enabled
+Warning (14026): LATCH primitive "temp[15]" is permanently enabled
+Warning (14026): LATCH primitive "temp[16]" is permanently enabled
+Warning (14026): LATCH primitive "temp[17]" is permanently enabled
+Warning (14026): LATCH primitive "temp[18]" is permanently enabled
+Warning (14026): LATCH primitive "temp[19]" is permanently enabled
+Warning (14026): LATCH primitive "temp[20]" is permanently enabled
+Warning (14026): LATCH primitive "temp[21]" is permanently enabled
+Warning (14026): LATCH primitive "temp[22]" is permanently enabled
+Warning (14026): LATCH primitive "temp[23]" is permanently enabled
+Warning (14026): LATCH primitive "temp[24]" is permanently enabled
+Warning (14026): LATCH primitive "temp[25]" is permanently enabled
+Warning (14026): LATCH primitive "temp[26]" is permanently enabled
+Warning (14026): LATCH primitive "temp[27]" is permanently enabled
+Warning (14026): LATCH primitive "temp[28]" is permanently enabled
+Warning (14026): LATCH primitive "temp[29]" is permanently enabled
+Warning (14026): LATCH primitive "temp[30]" is permanently enabled
+Warning (14026): LATCH primitive "temp[31]" is permanently enabled
+Warning (14026): LATCH primitive "s6[0]" is permanently enabled
+Warning (14026): LATCH primitive "s6[1]" is permanently enabled
+Warning (14026): LATCH primitive "s6[2]" is permanently enabled
+Warning (14026): LATCH primitive "s6[3]" is permanently enabled
+Warning (14026): LATCH primitive "s6[4]" is permanently enabled
+Warning (14026): LATCH primitive "s6[5]" is permanently enabled
+Warning (14026): LATCH primitive "s6[6]" is permanently enabled
+Warning (14026): LATCH primitive "s6[7]" is permanently enabled
+Warning (14026): LATCH primitive "s5[0]" is permanently enabled
+Warning (14026): LATCH primitive "s5[1]" is permanently enabled
+Warning (14026): LATCH primitive "s5[2]" is permanently enabled
+Warning (14026): LATCH primitive "s5[3]" is permanently enabled
+Warning (14026): LATCH primitive "s5[4]" is permanently enabled
+Warning (14026): LATCH primitive "s5[5]" is permanently enabled
+Warning (14026): LATCH primitive "s5[6]" is permanently enabled
+Warning (14026): LATCH primitive "s5[7]" is permanently enabled
+Warning (14026): LATCH primitive "s4[0]" is permanently enabled
+Warning (14026): LATCH primitive "s4[1]" is permanently enabled
+Warning (14026): LATCH primitive "s4[2]" is permanently enabled
+Warning (14026): LATCH primitive "s4[3]" is permanently enabled
+Warning (14026): LATCH primitive "s4[4]" is permanently enabled
+Warning (14026): LATCH primitive "s4[5]" is permanently enabled
+Warning (14026): LATCH primitive "s4[6]" is permanently enabled
+Warning (14026): LATCH primitive "s4[7]" is permanently enabled
+Warning (14026): LATCH primitive "s3[0]" is permanently enabled
+Warning (14026): LATCH primitive "s3[1]" is permanently enabled
+Warning (14026): LATCH primitive "s3[2]" is permanently enabled
+Warning (14026): LATCH primitive "s3[3]" is permanently enabled
+Warning (14026): LATCH primitive "s3[4]" is permanently enabled
+Warning (14026): LATCH primitive "s3[5]" is permanently enabled
+Warning (14026): LATCH primitive "s3[6]" is permanently enabled
+Warning (14026): LATCH primitive "s3[7]" is permanently enabled
+Warning (14026): LATCH primitive "s2[0]" is permanently enabled
+Warning (14026): LATCH primitive "s2[1]" is permanently enabled
+Warning (14026): LATCH primitive "s2[2]" is permanently enabled
+Warning (14026): LATCH primitive "s2[3]" is permanently enabled
+Warning (14026): LATCH primitive "s2[4]" is permanently enabled
+Warning (14026): LATCH primitive "s2[5]" is permanently enabled
+Warning (14026): LATCH primitive "s2[6]" is permanently enabled
+Warning (14026): LATCH primitive "s2[7]" is permanently enabled
+Warning (14026): LATCH primitive "s1[0]" is permanently enabled
+Warning (14026): LATCH primitive "s1[1]" is permanently enabled
+Warning (14026): LATCH primitive "s1[2]" is permanently enabled
+Warning (14026): LATCH primitive "s1[3]" is permanently enabled
+Warning (14026): LATCH primitive "s1[4]" is permanently enabled
+Warning (14026): LATCH primitive "s1[5]" is permanently enabled
+Warning (14026): LATCH primitive "s1[6]" is permanently enabled
+Warning (14026): LATCH primitive "s1[7]" is permanently enabled
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "MatOut[31]" is stuck at GND
+Info (17049): 32 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 153 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 112 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 115 warnings
+    Info: Peak virtual memory: 480 megabytes
+    Info: Processing ended: Mon May 11 23:30:53 2015
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
+
+

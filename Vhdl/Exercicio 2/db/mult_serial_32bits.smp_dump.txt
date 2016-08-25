@@ -1,0 +1,7 @@
+
+State Machine - |mult_serial_32bits|mult_serial_32bits_fsm:FSM|curr_state
+Name curr_state.S3 curr_state.S2 curr_state.S1 curr_state.S0 
+curr_state.S0 0 0 0 0 
+curr_state.S1 0 0 1 1 
+curr_state.S2 0 1 0 1 
+curr_state.S3 1 0 0 1 

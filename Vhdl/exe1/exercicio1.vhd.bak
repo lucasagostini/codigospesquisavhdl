@@ -1,0 +1,15 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+-- Multiplica uma entrada de 8 bits pela constante 10
+entity exercicio1 is
+port (
+	input :  in std_logic_vector(31 downto 0);
+	output: out std_logic_vector(35 downto 0));
+end entity;
+
+architecture RTL of exercicio1 is
+	
+begin
+	output <= input & "000" + input & "0";
+end architecture RTL;

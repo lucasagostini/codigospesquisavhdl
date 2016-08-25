@@ -1,0 +1,72 @@
+# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# do exercicio1_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {C:/vhdl/trabalho_mult/exe1/exercicio1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Compiling entity exercicio1
+# -- Compiling architecture RTL of exercicio1
+# 
+vsim +altera -do exercicio1_run_msim_rtl_vhdl.do -l msim_transcript -gui work.exercicio1
+# vsim +altera -do exercicio1_run_msim_rtl_vhdl.do -l msim_transcript -gui work.exercicio1 
+# Loading std.standard
+# Loading std.textio(body)
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_signed(body)
+# Loading work.exercicio1(rtl)
+# do exercicio1_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Modifying modelsim.ini
+# 
+# vcom -93 -work work {C:/vhdl/trabalho_mult/exe1/exercicio1.vhd}
+# Model Technology ModelSim ALTERA vcom 10.1d Compiler 2012.11 Nov  2 2012
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Compiling entity exercicio1
+# -- Compiling architecture RTL of exercicio1
+# 
+# WARNING: No extended dataflow license exists
+add wave -position insertpoint  \
+sim:/exercicio1/input \
+sim:/exercicio1/output
+force -freeze sim:/exercicio1/input 00000000000000000000000010000000 0
+force -freeze sim:/exercicio1/input 00000000000000000000010000000000 0
+run
+run
+run
+run
+force -freeze sim:/exercicio1/input 11111111111111111111111111111111 0
+run
+run
+force -freeze sim:/exercicio1/input 01111111111111111111111111111111 0
+run
+run
+noforce sim:/exercicio1/input
+force -freeze sim:/exercicio1/input 11111111111111111111111111111111 0
+run
+run
+run
+run
+run
+run

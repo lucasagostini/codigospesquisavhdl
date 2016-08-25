@@ -1,0 +1,91 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+# Date created = 21:13:16  June 15, 2015
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		testQCoutput_final_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV GX"
+set_global_assignment -name DEVICE auto
+set_global_assignment -name TOP_LEVEL_ENTITY testQCoutput_final
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:13:16  JUNE 15, 2015"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VHDL_FILE Xgate2pos1.vhd
+set_global_assignment -name VHDL_FILE Xgate.vhdl
+set_global_assignment -name VHDL_FILE uart_transmitter.vhd
+set_global_assignment -name VHDL_FILE uart_ctrl.vhd
+set_global_assignment -name VHDL_FILE testUART.vhd
+set_global_assignment -name VHDL_FILE RAM_reader.vhd
+set_global_assignment -name VHDL_FILE qc_buttons.vhd
+set_global_assignment -name VHDL_FILE PHASEgate.vhdl
+set_global_assignment -name VHDL_FILE Normalizer.vhdl
+set_global_assignment -name VHDL_FILE mux2.vhdl
+set_global_assignment -name VHDL_FILE mult.vhdl
+set_global_assignment -name VHDL_FILE mainclk_div.vhd
+set_global_assignment -name VHDL_FILE lfsr_generic.vhdl
+set_global_assignment -name VHDL_FILE HADAMARDgate3pos1.vhd
+set_global_assignment -name VHDL_FILE HADAMARDgate.vhdl
+set_global_assignment -name VHDL_FILE GroverOracle_00.vhdl
+set_global_assignment -name VHDL_FILE GroverAlgorithm_00.vhdl
+set_global_assignment -name VHDL_FILE expander_merge4.vhd
+set_global_assignment -name VHDL_FILE DFF.vhdl
+set_global_assignment -name VHDL_FILE CROTgate3pos0.vhd
+set_global_assignment -name VHDL_FILE complexNum.vhdl
+set_global_assignment -name VHDL_FILE complexMult.vhdl
+set_global_assignment -name VHDL_FILE CNOTgate3pos1.vhd
+set_global_assignment -name VHDL_FILE CNOTgate.vhdl
+set_global_assignment -name VHDL_FILE CNOT_u.vhdl
+set_global_assignment -name VHDL_FILE clk_div.vhd
+set_global_assignment -name VHDL_FILE cascadephase.vhdl
+set_global_assignment -name VHDL_FILE C_Tgate.vhdl
+set_global_assignment -name VHDL_FILE C_Sgate.vhdl
+set_global_assignment -name VHDL_FILE button_interface.vhd
+set_global_assignment -name VHDL_FILE adder.vhdl
+set_global_assignment -name VHDL_FILE testOneGate.vhdl
+set_global_assignment -name VHDL_FILE testhardware.vhdl
+set_global_assignment -name VHDL_FILE Sgate.vhdl
+set_global_assignment -name VHDL_FILE quReg.vhdl
+set_global_assignment -name VHDL_FILE quRecords.vhdl
+set_global_assignment -name VHDL_FILE qubit_mux.vhd
+set_global_assignment -name VHDL_FILE QuantumRegister.vhdl
+set_global_assignment -name VHDL_FILE quantumFFT3.vhdl
+set_global_assignment -name VHDL_FILE QC_ctrl.vhd
+set_global_assignment -name VHDL_FILE testQCoutput_final.vhd
+set_global_assignment -name VHDL_FILE testQCoutput.vhd
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

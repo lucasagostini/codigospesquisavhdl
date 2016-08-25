@@ -1,0 +1,28 @@
+
+State Machine - |testQCoutput_final|uart_ctrl:uart_control|state
+Name state.D state.C state.B state.A 
+state.A 0 0 0 0 
+state.B 0 0 1 1 
+state.C 0 1 0 1 
+state.D 1 0 0 1 
+
+State Machine - |testQCoutput_final|uart_transmitter:uart_transmit|state
+Name state.J state.I state.H state.G state.F state.E state.D state.C state.B state.A state.S state.R 
+state.R 0 0 0 0 0 0 0 0 0 0 0 0 
+state.S 0 0 0 0 0 0 0 0 0 0 1 1 
+state.A 0 0 0 0 0 0 0 0 0 1 0 1 
+state.B 0 0 0 0 0 0 0 0 1 0 0 1 
+state.C 0 0 0 0 0 0 0 1 0 0 0 1 
+state.D 0 0 0 0 0 0 1 0 0 0 0 1 
+state.E 0 0 0 0 0 1 0 0 0 0 0 1 
+state.F 0 0 0 0 1 0 0 0 0 0 0 1 
+state.G 0 0 0 1 0 0 0 0 0 0 0 1 
+state.H 0 0 1 0 0 0 0 0 0 0 0 1 
+state.I 0 1 0 0 0 0 0 0 0 0 0 1 
+state.J 1 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |testQCoutput_final|QC_ctrl:qc_control|state
+Name state.B state.A state.R 
+state.R 0 0 0 
+state.A 0 1 1 
+state.B 1 0 1 

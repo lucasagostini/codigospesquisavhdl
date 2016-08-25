@@ -1,0 +1,11 @@
+use work.complex_pkg.all;
+
+package matrix_pkg is
+
+	type matrix is array (integer range <>, integer range <>) of complex32;
+
+end package matrix_pkg;
+
+
+package body matrix_pkg is
+end package body matrix_pkg;

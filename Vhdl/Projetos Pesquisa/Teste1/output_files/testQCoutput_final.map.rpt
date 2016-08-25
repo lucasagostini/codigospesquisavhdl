@@ -1,0 +1,1553 @@
+Analysis & Synthesis report for testQCoutput_final
+Mon Jun 15 21:25:25 2015
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |testQCoutput_final|uart_ctrl:uart_control|state
+  9. State Machine - |testQCoutput_final|uart_transmitter:uart_transmit|state
+ 10. State Machine - |testQCoutput_final|QC_ctrl:qc_control|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG1
+ 17. Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG2
+ 18. Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG3
+ 19. Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG4
+ 20. Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG5
+ 21. Parameter Settings for User Entity Instance: clk_div:QC_clkdiv
+ 22. Parameter Settings for User Entity Instance: QC_ctrl:qc_control
+ 23. Parameter Settings for User Entity Instance: qubit_mux:resultmux
+ 24. Parameter Settings for User Entity Instance: clk_div:uart_clkdiv
+ 25. Parameter Settings for User Entity Instance: uart_transmitter:uart_transmit
+ 26. Parameter Settings for User Entity Instance: uart_ctrl:uart_control
+ 27. Port Connectivity Checks: "uart_transmitter:uart_transmit"
+ 28. Port Connectivity Checks: "clk_div:uart_clkdiv"
+ 29. Port Connectivity Checks: "qubit_mux:resultmux"
+ 30. Port Connectivity Checks: "clk_div:QC_clkdiv"
+ 31. Port Connectivity Checks: "quantumFFT3:QC|QuantumRegister:REG1"
+ 32. Port Connectivity Checks: "quantumFFT3:QC"
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jun 15 21:25:25 2015           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; testQCoutput_final                              ;
+; Top-level Entity Name              ; testQCoutput_final                              ;
+; Family                             ; Cyclone IV GX                                   ;
+; Total logic elements               ; 205                                             ;
+;     Total combinational functions  ; 193                                             ;
+;     Dedicated logic registers      ; 106                                             ;
+; Total registers                    ; 106                                             ;
+; Total pins                         ; 33                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total GXB Receiver Channel PCS     ; 0                                               ;
+; Total GXB Receiver Channel PMA     ; 0                                               ;
+; Total GXB Transmitter Channel PCS  ; 0                                               ;
+; Total GXB Transmitter Channel PMA  ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Top-level entity name                                                      ; testQCoutput_final ; testQCoutput_final ;
+; Family name                                                                ; Cyclone IV GX      ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                            ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+; uart_transmitter.vhd             ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/uart_transmitter.vhd   ;         ;
+; uart_ctrl.vhd                    ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/uart_ctrl.vhd          ;         ;
+; PHASEgate.vhdl                   ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/PHASEgate.vhdl         ;         ;
+; mult.vhdl                        ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/mult.vhdl              ;         ;
+; HADAMARDgate.vhdl                ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/HADAMARDgate.vhdl      ;         ;
+; clk_div.vhd                      ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/clk_div.vhd            ;         ;
+; C_Tgate.vhdl                     ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/C_Tgate.vhdl           ;         ;
+; C_Sgate.vhdl                     ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/C_Sgate.vhdl           ;         ;
+; adder.vhdl                       ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/adder.vhdl             ;         ;
+; Sgate.vhdl                       ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/Sgate.vhdl             ;         ;
+; quRecords.vhdl                   ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/quRecords.vhdl         ;         ;
+; qubit_mux.vhd                    ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/qubit_mux.vhd          ;         ;
+; QuantumRegister.vhdl             ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/QuantumRegister.vhdl   ;         ;
+; quantumFFT3.vhdl                 ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/quantumFFT3.vhdl       ;         ;
+; QC_ctrl.vhd                      ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/QC_ctrl.vhd            ;         ;
+; testQCoutput_final.vhd           ; yes             ; User VHDL File  ; C:/Vhdl/Projetos Pesquisa/Teste1/testQCoutput_final.vhd ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------+---------+
+
+
++---------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary ;
++--------------------------+------------------+
+; Resource                 ; Usage            ;
++--------------------------+------------------+
+; I/O pins                 ; 33               ;
+; DSP block 9-bit elements ; 0                ;
+; Maximum fan-out node     ; pb_reset~input   ;
+; Maximum fan-out          ; 78               ;
+; Total fan-out            ; 977              ;
+; Average fan-out          ; 2.68             ;
++--------------------------+------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                             ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+----------------------------------------------------+--------------+
+; Compilation Hierarchy Node          ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; DSP 36x36 ; Pins ; Virtual Pins ; Full Hierarchy Name                                ; Library Name ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+----------------------------------------------------+--------------+
+; |testQCoutput_final                 ; 193 (0)           ; 106 (0)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 33   ; 0            ; |testQCoutput_final                                ; work         ;
+;    |QC_ctrl:qc_control|             ; 95 (95)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |testQCoutput_final|QC_ctrl:qc_control             ; work         ;
+;    |clk_div:QC_clkdiv|              ; 2 (2)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |testQCoutput_final|clk_div:QC_clkdiv              ; work         ;
+;    |clk_div:uart_clkdiv|            ; 18 (18)           ; 10 (10)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |testQCoutput_final|clk_div:uart_clkdiv            ; work         ;
+;    |qubit_mux:resultmux|            ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |testQCoutput_final|qubit_mux:resultmux            ; work         ;
+;    |uart_ctrl:uart_control|         ; 27 (27)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |testQCoutput_final|uart_ctrl:uart_control         ; work         ;
+;    |uart_transmitter:uart_transmit| ; 45 (45)           ; 43 (43)      ; 0           ; 0            ; 0       ; 0         ; 0         ; 0    ; 0            ; |testQCoutput_final|uart_transmitter:uart_transmit ; work         ;
++-------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+-----------+------+--------------+----------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |testQCoutput_final|uart_ctrl:uart_control|state ;
++---------+---------+---------+---------+--------------------------+
+; Name    ; state.D ; state.C ; state.B ; state.A                  ;
++---------+---------+---------+---------+--------------------------+
+; state.A ; 0       ; 0       ; 0       ; 0                        ;
+; state.B ; 0       ; 0       ; 1       ; 1                        ;
+; state.C ; 0       ; 1       ; 0       ; 1                        ;
+; state.D ; 1       ; 0       ; 0       ; 1                        ;
++---------+---------+---------+---------+--------------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |testQCoutput_final|uart_transmitter:uart_transmit|state                                                        ;
++---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+
+; Name    ; state.J ; state.I ; state.H ; state.G ; state.F ; state.E ; state.D ; state.C ; state.B ; state.A ; state.S ; state.R ;
++---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+
+; state.R ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ;
+; state.S ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ; 1       ;
+; state.A ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ; 0       ; 1       ;
+; state.B ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ; 0       ; 0       ; 1       ;
+; state.C ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ; 0       ; 0       ; 0       ; 1       ;
+; state.D ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ; 0       ; 0       ; 0       ; 0       ; 1       ;
+; state.E ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ;
+; state.F ; 0       ; 0       ; 0       ; 0       ; 1       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ;
+; state.G ; 0       ; 0       ; 0       ; 1       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ;
+; state.H ; 0       ; 0       ; 1       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ;
+; state.I ; 0       ; 1       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ;
+; state.J ; 1       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 0       ; 1       ;
++---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+---------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------+
+; State Machine - |testQCoutput_final|QC_ctrl:qc_control|state ;
++---------+---------+---------+--------------------------------+
+; Name    ; state.B ; state.A ; state.R                        ;
++---------+---------+---------+--------------------------------+
+; state.R ; 0       ; 0       ; 0                              ;
+; state.A ; 0       ; 1       ; 1                              ;
+; state.B ; 1       ; 0       ; 1                              ;
++---------+---------+---------+--------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                 ;
++---------------------------------------------------------------------+------------------------------------------------------------------------------+
+; Register name                                                       ; Reason for Removal                                                           ;
++---------------------------------------------------------------------+------------------------------------------------------------------------------+
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[0..9]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[0..7]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[8]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[9]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[0..9] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[0..9]      ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[0..9]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[0..9]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[0..9] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[0..7]      ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[8]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[9]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[0..9]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[0..7]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[8]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[9]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[0..9] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[0..9]      ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[0..9]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[0..9]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[0..9] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[0..7]      ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[8]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[9]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[0..9]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[0..7]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[8]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[9]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[0..9] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[0..9]      ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[9]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[9]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[8]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[8]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[8,9]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[8,9]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[9]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[9]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[8]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[8]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[9]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[9]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[8,9]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[8,9]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[9]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[9]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[8]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[8]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[8]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[8]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[8,9]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[8,9]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[9]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[9]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[8]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[8]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[9]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[9]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[8]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[8]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[8]    ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[8]         ; Stuck at GND due to stuck port data_in                                       ;
+; uart_transmitter:uart_transmit|data[20..23]                         ; Stuck at GND due to stuck port data_in                                       ;
+; uart_transmitter:uart_transmit|character[7]                         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[0]    ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[0] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[1]    ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[1] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[2]    ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[2] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[3]    ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[3] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[4]    ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[4] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[5]    ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[5] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[6]    ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[6] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[7]    ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[7] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[0]         ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[0]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[1]         ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[1]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[2]         ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[2]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[3]         ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[3]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[4]         ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[4]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[5]         ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[5]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[6]         ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[6]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[7]         ; Merged with quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[7]      ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[0]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[0]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[0]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[0]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[1]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[1]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[1]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[1]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[2]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[2]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[2]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[2]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[3]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[3]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[3]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[3]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[4]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[4]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[4]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[4]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[5]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[5]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[5]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[5]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[6]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[6]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[6]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[6]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[7]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[7]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[7]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[7]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.imaginary[9]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[9]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.imaginary[9]     ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[9]  ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[0]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[0]       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[1]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[1]       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[2]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[2]       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[3]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[3]       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[4]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[4]       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[5]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[5]       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[6]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[6]       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[7]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[7]       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].beta.real[9]          ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[9]       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[0]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[0] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[0]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[0] ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[1]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[1] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[1]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[1] ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[2]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[2] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[2]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[2] ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[3]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[3] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[3]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[3] ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[4]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[4] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[4]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[4] ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[5]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[5] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[5]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[5] ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[6]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[6] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[6]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[6] ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[7]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[7] ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[7]    ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[7] ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[0]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[0]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[0]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[0]      ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[1]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[1]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[1]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[1]      ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[2]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[2]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[2]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[2]      ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[3]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[3]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[3]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[3]      ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[4]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[4]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[4]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[4]      ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[5]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[5]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[5]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[5]      ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[6]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[6]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[6]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[6]      ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[7]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[7]      ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[7]         ; Merged with quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[7]      ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[0]          ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[0]  ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[1]          ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[1]  ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[2]          ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[2]  ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[3]          ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[3]  ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[4]          ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[4]  ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[5]          ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[5]  ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[6]          ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[6]  ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[7]          ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[7]  ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[0]    ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[0] ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[1]    ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[1] ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[2]    ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[2] ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[3]    ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[3] ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[4]    ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[4] ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[5]    ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[5] ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[6]    ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[6] ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[7]    ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[7] ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[0]         ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[0]      ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[1]         ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[1]      ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[2]         ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[2]      ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[3]         ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[3]      ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[4]         ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[4]      ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[5]         ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[5]      ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[6]         ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[6]      ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[7]         ; Merged with quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[7]      ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[9]     ; Merged with quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[9]       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[0]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[1]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[2]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[3]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[4,5]        ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[6]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[7]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[9]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[0..7]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.imaginary[9]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[0]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[1]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[2]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[3]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[4,5]        ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[6]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].beta.real[7,9]        ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[0..7] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[0]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[1]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[2]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[3]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[4,5]       ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[6]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[7]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[0]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[1]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[2]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[3]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[4,5]   ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[6]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[7]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[9]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[9]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[0..7]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[0]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[1]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[2]          ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[3]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[4,5]        ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[6]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[7,9]        ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[0..7] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[0]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[1]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[2]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[3]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[4,5]       ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[6]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[7]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[0]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[1]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[2]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[3]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[4,5]   ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[6]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[7]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[9]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[0..7,9]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[0..7] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[0]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[1]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[2]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[3]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[4,5]       ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[6]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[7]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[0..7] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[0]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[1]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[2]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[3]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[4,5]       ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[6]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[7]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[9]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[0..7] ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[0]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[1]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[2]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[3]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[4,5]       ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[6]         ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[7]         ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[9]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[9]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[0]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[0]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[0]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[0]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[1..6]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[7]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[1..6]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[7,9]        ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[0]     ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[0]          ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[1..6]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[7]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[1..6]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[7,9]        ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[1..6]  ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[7]     ; Stuck at VCC due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[1..6]       ; Stuck at GND due to stuck port data_in                                       ;
+; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[7,9]        ; Stuck at VCC due to stuck port data_in                                       ;
+; uart_ctrl:uart_control|toUART[18]                                   ; Merged with uart_ctrl:uart_control|toUART[8]                                 ;
+; uart_ctrl:uart_control|toUART[1,3,6,8,13,16]                        ; Merged with uart_ctrl:uart_control|toUART[11]                                ;
+; uart_ctrl:uart_control|toUART[2,4,5]                                ; Merged with uart_ctrl:uart_control|toUART[0]                                 ;
+; uart_ctrl:uart_control|toUART[12,14,15]                             ; Merged with uart_ctrl:uart_control|toUART[10]                                ;
+; uart_transmitter:uart_transmit|data[14]                             ; Merged with uart_transmitter:uart_transmit|data[12]                          ;
+; uart_ctrl:uart_control|toUART[9]                                    ; Merged with uart_ctrl:uart_control|toUART[19]                                ;
+; uart_transmitter:uart_transmit|data[18]                             ; Merged with uart_transmitter:uart_transmit|data[16]                          ;
+; clk_div:QC_clkdiv|count[1]                                          ; Stuck at GND due to stuck port data_in                                       ;
+; Total Number of Removed Registers = 582                             ;                                                                              ;
++---------------------------------------------------------------------+------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                      ;
++------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------+
+; Register name                                                    ; Reason for Removal        ; Registers Removed due to This Register                            ;
++------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------+
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[8]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[8],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[8],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[8],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[8],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[8],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[8],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[8],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[8],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[8],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[8],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[8],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[8],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[0],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[1],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[2],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[3],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[4],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[5],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[6],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[7],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.imaginary[9],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].beta.real[9],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[0],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[1],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[2],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[3],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[4],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[5],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[6],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[7],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.imaginary[9],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[9],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[9],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[9],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[9],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[0],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[0],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[0],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[0],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[1],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[2],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[3],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[4],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[5],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[6],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.imaginary[7],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[1],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[2],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[3],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[4],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[5],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[6],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[7],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[0].beta.real[9],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[0],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[0],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[1],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[2],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[3],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[4],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[5],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[6],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.imaginary[7],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[1],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[2],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[3],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[4],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[5],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[6],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[7],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].beta.real[9],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[1],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[2],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[3],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[4],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[5],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[6],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.imaginary[7],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[1],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[2],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[3],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[4],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[5],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[6],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[7],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].beta.real[9]        ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[8]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[8],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[8],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[8],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[0],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[1],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[2],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[3],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[4],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[5],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[6],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.imaginary[7],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[0],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[1],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[2],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[3],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[4],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[5],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[6],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[7],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG2|output[0].beta.real[9],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[0],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[1],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[2],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[3],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[4],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[5],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[6],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].beta.real[7]        ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[8]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[8],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[0],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[1],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[2],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[3],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[4],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[5],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[6],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[7]        ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[0]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[0],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[9],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[9],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[9],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG3|output[1].beta.real[9]        ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[0]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[0],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[9], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[9], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[9]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[1] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[1], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[1], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[1], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[1]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[0] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[0], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[0], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[0], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[0]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[8]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[8],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[8],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[8],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[8]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[8] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[8], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[8], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[8], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[8]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[9]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[9],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[9],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[9],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[9]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[7]      ; Stuck at VCC              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[7],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[7],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[7],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[7]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[9] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[9], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[9], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[9], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[9]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[3] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[3], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[3], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[3], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[3]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[2] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[2], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[2], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[2], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[2]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[4] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[4], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[4], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[4], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[4]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[5] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[5], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[5], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[5], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[5]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[6] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[6], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[6], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[6], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[6]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.imaginary[7] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.imaginary[7], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.imaginary[7], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.imaginary[7], ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.imaginary[7]  ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[0]      ; Stuck at VCC              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[0],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[0],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[0],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[0]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[1]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[1],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[1],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[1],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[1]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[2]      ; Stuck at VCC              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[2],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[2],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[2],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[2]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[3]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[3],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[3],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[3],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[3]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[4]      ; Stuck at VCC              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[4],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[4],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[4],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[4]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[5]      ; Stuck at VCC              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[5],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[5],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[5],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[5]       ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[0].alpha.real[6]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[0].alpha.real[6],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG3|output[0].alpha.real[6],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG4|output[0].alpha.real[6],      ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[0].alpha.real[6]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[0]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[0],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[0],  ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.imaginary[9]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[0]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[0],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[0],       ;
+;                                                                  ;                           ; quantumFFT3:QC|QuantumRegister:REG5|output[2].alpha.real[9]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[6]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[6],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[6]        ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[7]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[7],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[7]        ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[8]       ; Stuck at VCC              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[8],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[8]        ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[9]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[9],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[9]        ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[0] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[0], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[0]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[1] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[1], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[1]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[2] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[2], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[2]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[3] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[3], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[3]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[4] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[4], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[4]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[5] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[5], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[5]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[6] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[6], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[6]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[7] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[7], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[7]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[8] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[8], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[8]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.imaginary[9] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.imaginary[9], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.imaginary[9]  ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[0]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[0],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[0]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[1]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[1],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[1]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[2]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[2],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[2]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[3]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[3],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[3]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[4]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[4],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[4]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[5]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[5],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[5]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[6]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[6],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[6]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[7]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[7],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[7]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[8]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[8],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[8]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].alpha.real[9]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].alpha.real[9],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].alpha.real[9]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[2]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[2],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[2]        ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.imaginary[8] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.imaginary[8], ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.imaginary[8]  ;
+; quantumFFT3:QC|QuantumRegister:REG3|output[1].alpha.real[8]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG4|output[1].alpha.real[8],      ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG5|output[1].alpha.real[8]       ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[1]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[1],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[1]   ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[2]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[2],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[2]   ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[3]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[3],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[3]   ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[4]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[4],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[4]   ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[5]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[5],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[5]   ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[6]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[6],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[6]   ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[7]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[7],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[7]   ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.imaginary[9]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.imaginary[9],  ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.imaginary[9]   ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[1]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[1],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[1]        ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[3]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[3],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[3]        ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[4]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[4],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[4]        ;
+; quantumFFT3:QC|QuantumRegister:REG2|output[2].beta.real[5]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG3|output[2].beta.real[5],       ;
+;                                                                  ; due to stuck port data_in ; quantumFFT3:QC|QuantumRegister:REG4|output[2].beta.real[5]        ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[6] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[6]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[7] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[7]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[8] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[8]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[9] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[9]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[0]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[0]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[1]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[1]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[2]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[2]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[3]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[3]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[4]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[4]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[5]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[5]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[6]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[6]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[7]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[7]   ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[8]      ; Stuck at VCC              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[8]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[9]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[9]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[6]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[6]   ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[5]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[5]   ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[2]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[2]        ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[3]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[3]        ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[4]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[4]   ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[3]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[3]   ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[2]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[2]   ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[1]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[1]   ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[4]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[4]        ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[1]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[1]        ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[5]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[5]        ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[6]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[6]        ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[7]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[7]        ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.imaginary[9]  ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.imaginary[9]   ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].beta.real[9]       ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].beta.real[9]        ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[0] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[0]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[1] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[1]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[2] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[2]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[3] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[3]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[4] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[4]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.imaginary[5] ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.imaginary[5]  ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
+; quantumFFT3:QC|QuantumRegister:REG1|output[1].alpha.real[7]      ; Stuck at GND              ; quantumFFT3:QC|QuantumRegister:REG2|output[1].alpha.real[7]       ;
+;                                                                  ; due to stuck port data_in ;                                                                   ;
++------------------------------------------------------------------+---------------------------+-------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 106   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 81    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 51    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; uart_transmitter:uart_transmit|transmit ; 1       ;
+; Total number of inverted registers = 1  ;         ;
++-----------------------------------------+---------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |testQCoutput_final|uart_transmitter:uart_transmit|data[6] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG1 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; num            ; 3     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG2 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; num            ; 3     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG3 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; num            ; 3     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG4 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; num            ; 3     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: quantumFFT3:QC|QuantumRegister:REG5 ;
++----------------+-------+---------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                    ;
++----------------+-------+---------------------------------------------------------+
+; num            ; 3     ; Signed Integer                                          ;
++----------------+-------+---------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clk_div:QC_clkdiv ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; div_clk_by     ; 2     ; Signed Integer                        ;
+; num_bits       ; 2     ; Signed Integer                        ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: QC_ctrl:qc_control ;
++----------------+-------+----------------------------------------+
+; Parameter Name ; Value ; Type                                   ;
++----------------+-------+----------------------------------------+
+; numcc          ; 5     ; Signed Integer                         ;
+; length         ; 3     ; Signed Integer                         ;
++----------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: qubit_mux:resultmux ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; totalentries   ; 6     ; Signed Integer                          ;
+; length         ; 3     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: clk_div:uart_clkdiv ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; div_clk_by     ; 347   ; Signed Integer                          ;
+; num_bits       ; 9     ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_transmitter:uart_transmit ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; bytes          ; 24    ; Signed Integer                                     ;
+; length         ; 5     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_ctrl:uart_control ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; bytes          ; 24    ; Signed Integer                             ;
+; byteslength    ; 5     ; Signed Integer                             ;
+; ramsize        ; 6     ; Signed Integer                             ;
+; ramsizelength  ; 3     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "uart_transmitter:uart_transmit"                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; char ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "clk_div:uart_clkdiv" ;
++--------+-------+----------+---------------------+
+; Port   ; Type  ; Severity ; Details             ;
++--------+-------+----------+---------------------+
+; enable ; Input ; Info     ; Stuck at VCC        ;
++--------+-------+----------+---------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "qubit_mux:resultmux" ;
++----------+-------+----------+-------------------+
+; Port     ; Type  ; Severity ; Details           ;
++----------+-------+----------+-------------------+
+; input[0] ; Input ; Info     ; Stuck at VCC      ;
++----------+-------+----------+-------------------+
+
+
++-----------------------------------------------+
+; Port Connectivity Checks: "clk_div:QC_clkdiv" ;
++--------+-------+----------+-------------------+
+; Port   ; Type  ; Severity ; Details           ;
++--------+-------+----------+-------------------+
+; enable ; Input ; Info     ; Stuck at VCC      ;
++--------+-------+----------+-------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "quantumFFT3:QC|QuantumRegister:REG1"                                                     ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; output[2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "quantumFFT3:QC"                  ;
++---------------------------+-------+----------+--------------+
+; Port                      ; Type  ; Severity ; Details      ;
++---------------------------+-------+----------+--------------+
+; phase_real[5..4]          ; Input ; Info     ; Stuck at VCC ;
+; phase_real[9..8]          ; Input ; Info     ; Stuck at GND ;
+; phase_real[7]             ; Input ; Info     ; Stuck at VCC ;
+; phase_real[6]             ; Input ; Info     ; Stuck at GND ;
+; phase_real[3]             ; Input ; Info     ; Stuck at GND ;
+; phase_real[2]             ; Input ; Info     ; Stuck at VCC ;
+; phase_real[1]             ; Input ; Info     ; Stuck at GND ;
+; phase_real[0]             ; Input ; Info     ; Stuck at VCC ;
+; phase_imag[5..4]          ; Input ; Info     ; Stuck at VCC ;
+; phase_imag[9..8]          ; Input ; Info     ; Stuck at GND ;
+; phase_imag[7]             ; Input ; Info     ; Stuck at VCC ;
+; phase_imag[6]             ; Input ; Info     ; Stuck at GND ;
+; phase_imag[3]             ; Input ; Info     ; Stuck at GND ;
+; phase_imag[2]             ; Input ; Info     ; Stuck at VCC ;
+; phase_imag[1]             ; Input ; Info     ; Stuck at GND ;
+; phase_imag[0]             ; Input ; Info     ; Stuck at VCC ;
+; root2[5..4]               ; Input ; Info     ; Stuck at VCC ;
+; root2[9..8]               ; Input ; Info     ; Stuck at GND ;
+; root2[7]                  ; Input ; Info     ; Stuck at VCC ;
+; root2[6]                  ; Input ; Info     ; Stuck at GND ;
+; root2[3]                  ; Input ; Info     ; Stuck at GND ;
+; root2[2]                  ; Input ; Info     ; Stuck at VCC ;
+; root2[1]                  ; Input ; Info     ; Stuck at GND ;
+; root2[0]                  ; Input ; Info     ; Stuck at VCC ;
+; inqubit1.alpha            ; Input ; Info     ; Stuck at GND ;
+; inqubit1.beta.real[7..0]  ; Input ; Info     ; Stuck at GND ;
+; inqubit1.beta.real[9]     ; Input ; Info     ; Stuck at GND ;
+; inqubit1.beta.real[8]     ; Input ; Info     ; Stuck at VCC ;
+; inqubit1.beta.imaginary   ; Input ; Info     ; Stuck at GND ;
+; inqubit2.alpha.real[7..0] ; Input ; Info     ; Stuck at GND ;
+; inqubit2.alpha.real[9]    ; Input ; Info     ; Stuck at GND ;
+; inqubit2.alpha.real[8]    ; Input ; Info     ; Stuck at VCC ;
+; inqubit2.alpha.imaginary  ; Input ; Info     ; Stuck at GND ;
+; inqubit2.beta             ; Input ; Info     ; Stuck at GND ;
+; inqubit3.alpha            ; Input ; Info     ; Stuck at GND ;
+; inqubit3.beta.real[7..0]  ; Input ; Info     ; Stuck at GND ;
+; inqubit3.beta.real[9]     ; Input ; Info     ; Stuck at GND ;
+; inqubit3.beta.real[8]     ; Input ; Info     ; Stuck at VCC ;
+; inqubit3.beta.imaginary   ; Input ; Info     ; Stuck at GND ;
++---------------------------+-------+----------+--------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon Jun 15 21:25:20 2015
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off testQCoutput_final -c testQCoutput_final
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file xgate2pos1.vhd
+    Info (12022): Found design unit 1: XGATE2pos1-XGATE2_structural
+    Info (12023): Found entity 1: XGATE2pos1
+Info (12021): Found 2 design units, including 1 entities, in source file xgate.vhdl
+    Info (12022): Found design unit 1: Xgate-myX
+    Info (12023): Found entity 1: Xgate
+Info (12021): Found 2 design units, including 1 entities, in source file uart_transmitter.vhd
+    Info (12022): Found design unit 1: uart_transmitter-uart_trans_behav
+    Info (12023): Found entity 1: uart_transmitter
+Info (12021): Found 2 design units, including 1 entities, in source file uart_ctrl.vhd
+    Info (12022): Found design unit 1: uart_ctrl-behavioral
+    Info (12023): Found entity 1: uart_ctrl
+Info (12021): Found 2 design units, including 1 entities, in source file testuart.vhd
+    Info (12022): Found design unit 1: testUART-structural
+    Info (12023): Found entity 1: testUART
+Info (12021): Found 2 design units, including 1 entities, in source file ram_reader.vhd
+    Info (12022): Found design unit 1: RAM_reader-behavioral
+    Info (12023): Found entity 1: RAM_reader
+Info (12021): Found 2 design units, including 1 entities, in source file qc_buttons.vhd
+    Info (12022): Found design unit 1: qc_buttons-qc_buttons_structural
+    Info (12023): Found entity 1: qc_buttons
+Info (12021): Found 2 design units, including 1 entities, in source file phasegate.vhdl
+    Info (12022): Found design unit 1: PHASEgate-myPHASE
+    Info (12023): Found entity 1: PHASEgate
+Info (12021): Found 2 design units, including 1 entities, in source file normalizer.vhdl
+    Info (12022): Found design unit 1: Normalizer-behavioral
+    Info (12023): Found entity 1: Normalizer
+Info (12021): Found 2 design units, including 1 entities, in source file mux2.vhdl
+    Info (12022): Found design unit 1: mux2-behavioral
+    Info (12023): Found entity 1: mux2
+Info (12021): Found 2 design units, including 1 entities, in source file mult.vhdl
+    Info (12022): Found design unit 1: mult-myMult
+    Info (12023): Found entity 1: mult
+Info (12021): Found 2 design units, including 1 entities, in source file mainclk_div.vhd
+    Info (12022): Found design unit 1: mainclk_div-SYN
+    Info (12023): Found entity 1: mainclk_div
+Info (12021): Found 2 design units, including 1 entities, in source file lfsr_generic.vhdl
+    Info (12022): Found design unit 1: LFSR_GENERIC-RTL
+    Info (12023): Found entity 1: LFSR_GENERIC
+Info (12021): Found 2 design units, including 1 entities, in source file hadamardgate3pos1.vhd
+    Info (12022): Found design unit 1: HADAMARDgate3pos1-HADAMARDgate3_structural
+    Info (12023): Found entity 1: HADAMARDgate3pos1
+Info (12021): Found 2 design units, including 1 entities, in source file hadamardgate.vhdl
+    Info (12022): Found design unit 1: HADAMARDgate-myH
+    Info (12023): Found entity 1: HADAMARDgate
+Info (12021): Found 2 design units, including 1 entities, in source file groveroracle_00.vhdl
+    Info (12022): Found design unit 1: GroverOracle_00-structural
+    Info (12023): Found entity 1: GroverOracle_00
+Info (12021): Found 2 design units, including 1 entities, in source file groveralgorithm_00.vhdl
+    Info (12022): Found design unit 1: GroverAlgorithm_00-structural
+    Info (12023): Found entity 1: GroverAlgorithm_00
+Info (12021): Found 2 design units, including 1 entities, in source file expander_merge4.vhd
+    Info (12022): Found design unit 1: EXPANDER_MERGE4-EXPANDER_MERGE4_behavioral
+    Info (12023): Found entity 1: EXPANDER_MERGE4
+Warning (12018): Entity "DFF" will be ignored because it conflicts with Quartus II primitive name
+Info (12021): Found 2 design units, including 1 entities, in source file dff.vhdl
+    Info (12022): Found design unit 1: DFF-behavioral
+Info (12021): Found 2 design units, including 1 entities, in source file crotgate3pos0.vhd
+    Info (12022): Found design unit 1: CROTGATE3pos0-CROTGATE3_structural
+    Info (12023): Found entity 1: CROTGATE3pos0
+Info (12021): Found 2 design units, including 1 entities, in source file complexnum.vhdl
+    Info (12022): Found design unit 1: complexNum-myComplex
+    Info (12023): Found entity 1: complexNum
+Info (12021): Found 2 design units, including 1 entities, in source file complexmult.vhdl
+    Info (12022): Found design unit 1: complexMult-myCMult
+    Info (12023): Found entity 1: complexMult
+Info (12021): Found 2 design units, including 1 entities, in source file cnotgate3pos1.vhd
+    Info (12022): Found design unit 1: CNOTGATE3pos1-CNOTGATE3_structural
+    Info (12023): Found entity 1: CNOTGATE3pos1
+Info (12021): Found 2 design units, including 1 entities, in source file cnotgate.vhdl
+    Info (12022): Found design unit 1: CNOTgate-myCNOT
+    Info (12023): Found entity 1: CNOTgate
+Info (12021): Found 2 design units, including 1 entities, in source file cnot_u.vhdl
+    Info (12022): Found design unit 1: CNOT_u-behavioral
+    Info (12023): Found entity 1: CNOT_u
+Info (12021): Found 2 design units, including 1 entities, in source file clk_div.vhd
+    Info (12022): Found design unit 1: clk_div-behaviour
+    Info (12023): Found entity 1: clk_div
+Info (12021): Found 2 design units, including 1 entities, in source file cascadephase.vhdl
+    Info (12022): Found design unit 1: cascadephase-structural
+    Info (12023): Found entity 1: cascadephase
+Info (12021): Found 2 design units, including 1 entities, in source file c_tgate.vhdl
+    Info (12022): Found design unit 1: C_Tgate-mixed
+    Info (12023): Found entity 1: C_Tgate
+Info (12021): Found 2 design units, including 1 entities, in source file c_sgate.vhdl
+    Info (12022): Found design unit 1: C_Sgate-mixed
+    Info (12023): Found entity 1: C_Sgate
+Info (12021): Found 2 design units, including 1 entities, in source file button_interface.vhd
+    Info (12022): Found design unit 1: button_interface-behavioral
+    Info (12023): Found entity 1: button_interface
+Info (12021): Found 2 design units, including 1 entities, in source file adder.vhdl
+    Info (12022): Found design unit 1: adder-myAdd
+    Info (12023): Found entity 1: adder
+Info (12021): Found 2 design units, including 1 entities, in source file testonegate.vhdl
+    Info (12022): Found design unit 1: testOneGate-myTest
+    Info (12023): Found entity 1: testOneGate
+Info (12021): Found 2 design units, including 1 entities, in source file testhardware.vhdl
+    Info (12022): Found design unit 1: testhardware-structural
+    Info (12023): Found entity 1: testhardware
+Info (12021): Found 2 design units, including 1 entities, in source file sgate.vhdl
+    Info (12022): Found design unit 1: Sgate-myS
+    Info (12023): Found entity 1: Sgate
+Info (12021): Found 2 design units, including 1 entities, in source file qureg.vhdl
+    Info (12022): Found design unit 1: quReg-myReg
+    Info (12023): Found entity 1: quReg
+Info (12021): Found 1 design units, including 0 entities, in source file qurecords.vhdl
+    Info (12022): Found design unit 1: quRecords
+Info (12021): Found 2 design units, including 1 entities, in source file qubit_mux.vhd
+    Info (12022): Found design unit 1: qubit_mux-qubit_mux_behav
+    Info (12023): Found entity 1: qubit_mux
+Info (12021): Found 2 design units, including 1 entities, in source file quantumregister.vhdl
+    Info (12022): Found design unit 1: QuantumRegister-behavioral
+    Info (12023): Found entity 1: QuantumRegister
+Info (12021): Found 2 design units, including 1 entities, in source file quantumfft3.vhdl
+    Info (12022): Found design unit 1: quantumFFT3-structural
+    Info (12023): Found entity 1: quantumFFT3
+Info (12021): Found 2 design units, including 1 entities, in source file qc_ctrl.vhd
+    Info (12022): Found design unit 1: QC_ctrl-QC_ctrl_behav
+    Info (12023): Found entity 1: QC_ctrl
+Info (12021): Found 2 design units, including 1 entities, in source file testqcoutput_final.vhd
+    Info (12022): Found design unit 1: testQCoutput_final-structural
+    Info (12023): Found entity 1: testQCoutput_final
+Info (12021): Found 2 design units, including 1 entities, in source file testqcoutput.vhd
+    Info (12022): Found design unit 1: testQCoutput-structural
+    Info (12023): Found entity 1: testQCoutput
+Info (12127): Elaborating entity "testQCoutput_final" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at testQCoutput_final.vhd(113): object "zero" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at testQCoutput_final.vhd(121): object "char" assigned a value but never read
+Info (12128): Elaborating entity "quantumFFT3" for hierarchy "quantumFFT3:QC"
+Info (12128): Elaborating entity "HADAMARDgate" for hierarchy "quantumFFT3:QC|HADAMARDgate:H1_1"
+Info (12128): Elaborating entity "mult" for hierarchy "quantumFFT3:QC|HADAMARDgate:H1_1|mult:multalphareal"
+Info (12128): Elaborating entity "adder" for hierarchy "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1"
+Warning (10631): VHDL Process Statement warning at adder.vhdl(24): inferring latch(es) for signal or variable "SUM", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "SUM[0]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[1]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[2]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[3]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[4]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[5]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[6]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[7]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[8]" at adder.vhdl(24)
+Info (10041): Inferred latch for "SUM[9]" at adder.vhdl(24)
+Info (12128): Elaborating entity "QuantumRegister" for hierarchy "quantumFFT3:QC|QuantumRegister:REG1"
+Info (12128): Elaborating entity "C_Sgate" for hierarchy "quantumFFT3:QC|C_Sgate:S1_1"
+Warning (10492): VHDL Process Statement warning at C_Sgate.vhdl(27): signal "controlQubit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at C_Sgate.vhdl(30): signal "dataQubit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "Sgate" for hierarchy "quantumFFT3:QC|C_Sgate:S1_1|Sgate:sgate1"
+Info (12128): Elaborating entity "C_Tgate" for hierarchy "quantumFFT3:QC|C_Tgate:T1_1"
+Warning (10492): VHDL Process Statement warning at C_Tgate.vhdl(31): signal "controlQubit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at C_Tgate.vhdl(34): signal "dataQubit" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "PHASEgate" for hierarchy "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1"
+Info (12128): Elaborating entity "clk_div" for hierarchy "clk_div:QC_clkdiv"
+Info (12128): Elaborating entity "QC_ctrl" for hierarchy "QC_ctrl:qc_control"
+Info (12128): Elaborating entity "qubit_mux" for hierarchy "qubit_mux:resultmux"
+Info (12128): Elaborating entity "clk_div" for hierarchy "clk_div:uart_clkdiv"
+Info (12128): Elaborating entity "uart_transmitter" for hierarchy "uart_transmitter:uart_transmit"
+Info (12128): Elaborating entity "uart_ctrl" for hierarchy "uart_ctrl:uart_control"
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim2|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal2|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDim1|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H3_1|adder:ADDreal1|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim2|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal2|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDim1|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H2_2|adder:ADDreal1|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDim2|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|C_Tgate:T1_1|PHASEgate:pgate1|adder:ADDreal2|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim2|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal2|SUM[9]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim1|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim1|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim1|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim1|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim1|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim1|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim1|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDim1|SUM[0]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1|SUM[7]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1|SUM[6]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1|SUM[5]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1|SUM[4]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1|SUM[3]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1|SUM[2]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1|SUM[1]" is permanently enabled
+Warning (14026): LATCH primitive "quantumFFT3:QC|HADAMARDgate:H1_1|adder:ADDreal1|SUM[0]" is permanently enabled
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "uart_ctrl:uart_control|toUART[11]" is converted into an equivalent circuit using register "uart_ctrl:uart_control|toUART[11]~_emulated" and latch "uart_ctrl:uart_control|toUART[11]~1"
+    Warning (13310): Register "uart_ctrl:uart_control|toUART[0]" is converted into an equivalent circuit using register "uart_ctrl:uart_control|toUART[0]~_emulated" and latch "uart_ctrl:uart_control|toUART[0]~5"
+    Warning (13310): Register "uart_ctrl:uart_control|toUART[7]" is converted into an equivalent circuit using register "uart_ctrl:uart_control|toUART[7]~_emulated" and latch "uart_ctrl:uart_control|toUART[7]~9"
+    Warning (13310): Register "uart_ctrl:uart_control|toUART[10]" is converted into an equivalent circuit using register "uart_ctrl:uart_control|toUART[10]~_emulated" and latch "uart_ctrl:uart_control|toUART[10]~13"
+    Warning (13310): Register "uart_ctrl:uart_control|toUART[19]" is converted into an equivalent circuit using register "uart_ctrl:uart_control|toUART[19]~_emulated" and latch "uart_ctrl:uart_control|toUART[19]~17"
+    Warning (13310): Register "uart_ctrl:uart_control|toUART[17]" is converted into an equivalent circuit using register "uart_ctrl:uart_control|toUART[17]~_emulated" and latch "uart_ctrl:uart_control|toUART[17]~21"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "qubitout[0]" is stuck at VCC
+    Warning (13410): Pin "qubitout[1]" is stuck at GND
+    Warning (13410): Pin "qubitout[2]" is stuck at VCC
+    Warning (13410): Pin "qubitout[3]" is stuck at GND
+    Warning (13410): Pin "qubitout[4]" is stuck at VCC
+    Warning (13410): Pin "qubitout[5]" is stuck at VCC
+    Warning (13410): Pin "qubitout[6]" is stuck at GND
+    Warning (13410): Pin "qubitout[7]" is stuck at VCC
+    Warning (13410): Pin "qubitout[8]" is stuck at GND
+    Warning (13410): Pin "qubitout[9]" is stuck at GND
+    Warning (13410): Pin "qubitout[10]" is stuck at GND
+    Warning (13410): Pin "qubitout[11]" is stuck at GND
+    Warning (13410): Pin "qubitout[12]" is stuck at GND
+    Warning (13410): Pin "qubitout[13]" is stuck at GND
+    Warning (13410): Pin "qubitout[14]" is stuck at GND
+    Warning (13410): Pin "qubitout[15]" is stuck at GND
+    Warning (13410): Pin "qubitout[16]" is stuck at GND
+    Warning (13410): Pin "qubitout[17]" is stuck at GND
+    Warning (13410): Pin "qubitout[18]" is stuck at GND
+    Warning (13410): Pin "qubitout[19]" is stuck at GND
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register QC_ctrl:qc_control|count[31] will power up to Low
+    Critical Warning (18010): Register QC_ctrl:qc_control|count[0] will power up to Low
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 241 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 30 output pins
+    Info (21061): Implemented 208 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 164 warnings
+    Info: Peak virtual memory: 541 megabytes
+    Info: Processing ended: Mon Jun 15 21:25:25 2015
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:03
+
+

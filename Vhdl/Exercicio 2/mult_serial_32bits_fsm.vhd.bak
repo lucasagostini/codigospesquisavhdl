@@ -1,0 +1,61 @@
+library IEEE;
+use ieee.std_logic_1164.all;
+
+entity mult_serial_32bits_fsm is
+port (
+	clk		:	in std_logic;
+	reset		:	in std_logic;
+	enableh	: out std_logic;
+	enablel	: out std_logic;
+	shifth	: out std_logic;
+	shiftl	: out std_logic
+);
+end entity mult_serial_32bits_fsm;
+
+architecture fsm of mult_serial_32bits_fsm is
+	type fsm_state_t is (S0, S1, S2);
+	signal counter 	: integer range 0 to 31;
+	signal curr_state	: fsm_state_t;
+	signal next_state : fsm_state_t;
+begin
+	loadNextState:
+	process(clk, reset) is
+	begin
+		if reset = '1' then
+			curr_state <= S0;
+		elsif rising_edge(clk) then
+			curr_state <= next_state;
+		end if;
+	end process;
+	
+	nextStateLogic:
+	process(curr_state) is
+		
+	begin
+		case curr_state is
+			when S0 =>
+				enableh <= '0';
+				enablel <= '1';
+				shifth <= 'X';
+				shiftl <= '0';
+				counter <= 0;
+				next_state <= S1;
+			when S1 =>
+				enableh <= '1';
+				enablel <= '1';
+				shifth <= '1';
+				shiftl <= '1';
+				counter <= counter + 1;
+				next_state <= S2;
+			when S2 =>
+				enableh <= '1';
+				enablel <= '0';
+				shifth <= '0';
+				shiftl <= 'X';
+				if counter < 31 then
+					next_state <= S1;
+				end if;
+		end case;
+	end process;
+
+end architecture fsm;
